@@ -2,6 +2,7 @@ require 'rubygems'
 require 'colorize'
 
 @inputs = Array.new(5)
+
 def main
   puts "Welcome to Secret Number Game, guess number 1 - 50"
   puts "- You can guess 5 times"
@@ -49,6 +50,7 @@ def main
     puts "Game over! Secret is #{secret_number}".red
   end
 end
+
 def guess?(secret_number, number_input)
   compare = secret_number == Integer(number_input)
   if compare
@@ -58,6 +60,7 @@ def guess?(secret_number, number_input)
   end
   return compare
 end
+
 def showHint(secret_number)
   secret_number = secret_number.to_i
   rand_hint = 0
@@ -71,6 +74,7 @@ def showHint(secret_number)
   rand_hint_end = 10 - rand_hint + secret_number
   puts "Hint numbers [#{rand_hint_start} - #{rand_hint_end}]".yellow
 end
+
 def checkInteger(number_input)
   begin
     number_input_int = Integer(number_input)
@@ -80,6 +84,7 @@ def checkInteger(number_input)
     return false
   end
 end
+
 def checkDuplicate(number_input)
   check_duplicate = false
   @inputs.each do |check_input|
@@ -91,4 +96,5 @@ def checkDuplicate(number_input)
   end
   return check_duplicate
 end
+
 main if __FILE__ == $0
